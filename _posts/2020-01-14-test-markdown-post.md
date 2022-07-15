@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: A minimal example of using markdown with fastpages.
+description: 마크다운 포스팅을 위한 기본적인 작성방법 안내 
 categories: [markdown]
 title: 마크다운 포스팅 예제 작성방법
 ---
