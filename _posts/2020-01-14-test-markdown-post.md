@@ -41,11 +41,11 @@ Jekyll(정적 사이트 생성) 블로그에 포스팅 시, 파일명은 아래�
 > 인용문구는 '>' 기호를 사용한다.
 
 - 경고문구  
-- "{% include alert.html text=" " %}"  
+- 대괄호 감싸기 % include alert.html text=" " %  
 {% include alert.html text="경고문구" %}
 
 - 인용문구  
-- "{% include info.html text="  " %}"  
+- 대괄호 감싸기 % include info.html text="  " %  
 {% include info.html text="안내문구" %}
 
 ## 이미지 삽입
