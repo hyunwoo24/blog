@@ -3,71 +3,77 @@ toc: true
 layout: post
 description: A minimal example of using markdown with fastpages.
 categories: [markdown]
-title: An Example Markdown Post
+title: 마크다운 포스팅 예제 작성방법
 ---
-# Example Markdown Post
+# 마크다운 포스팅 예제 작성방법
 
-## Basic setup
+## 파일명과 포스팅의 제목 작성방법 
 
-Jekyll requires blog post files to be named according to the following format:
+Jekyll(정적 사이트 생성) 블로그에 포스팅 시, 파일명은 아래와 같은 포맷을 지켜 작성해야 한다.
 
 `YEAR-MONTH-DAY-filename.md`
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `filename` is whatever file name you choose, to remind yourself what this post is about. `.md` is the file extension for markdown files.
+`YEAR` 연도는 4자리 숫자, `MONTH`, `DAY` 월과 날짜는 2자리 숫자, `filename`, 파일 이름은 포스팅의 주제를 적는다. `.md` 는 마크다운 파일의 확장자 이름이다.
 
-The first line of the file should start with a single hash character, then a space, then your title. This is how you create a "*level 1 heading*" in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line `## File names` above.
+첫번째 줄은 #(한개의 해쉬태그)로 시작하고 빈칸을 하나 두고 제목을 작성한다. 이게 마크다운의 '레벨 1 헤딩' 이다. 그리고 레벨 2, 3 순으로 해쉬태그 기호를 이용해서 목차를 작성 할 수 있다. 예를 들어 레벨2는 `## File names` 와 같이 작성한다.
 
-## Basic formatting
+## 포스팅의 기본서식 작성방법
 
-You can use *italics*, **bold**, `code font text`, and create [links](https://www.markdownguide.org/cheat-sheet/). Here's a footnote [^1]. Here's a horizontal rule:
+이탤릭체 * 애스터리스크 기호 한번 사용 *italics*, 글씨 굵게 하려면 ** 애스터리스크 기호 두번 사용 **bold**, 코드에 사용된 텍스트를 적으려면 키보드 tab 키 위의 그레이브 기호 사용 `code font text`, 링크 넣으려면 대괄호를 적어 링크제목 적고 소괄호로 링크주소 작성 [마크다운가이드](https://www.markdownguide.org/cheat-sheet/). 각주는 대괄호 안에 ^1 부터 적어준다. [^1]. 가로줄을 표시하려면 마이너스 기호를 세번 적는다.
 
 ---
 
-## Lists
+## 목록작성
 
-Here's a list:
+목록을 마이너스 기호를 적로 한칸을 띄우고 내용을 적는다:
 
 - item 1
 - item 2
 
-And a numbered list:
+숫자 목록을 적으려면 숫자와 쉼표를 적고 한칸을 띄우고 내용을 적는다:
 
 1. item 1
 1. item 2
 
-## Boxes and stuff
+## 인용문구, 경고문구, 안내문구 작성 방법
 
-> This is a quotation
+- 인용문구  
+> 인용문구는 '>' 기호를 사용한다.
 
-{% include alert.html text="You can include alert boxes" %}
+- 경고문구  
+-- '{% include alert.html text=" " %}'  
+{% include alert.html text="경고문구" %}
 
-...and...
+- 인용문구  
+-- '{% include info.html text="  " %}'  
+{% include info.html text="안내문구" %}
 
-{% include info.html text="You can include info boxes" %}
+## 이미지 삽입
 
-## Images
+![]({{ site.baseurl }}/images/logo.png "이미지 설명")
 
-![]({{ site.baseurl }}/images/logo.png "fast.ai's logo")
+## 코드작성
 
-## Code
+서식이 있는 텍스트나 코드를 작성한다
 
-You can format text and code per usual 
+서식이 지정된 텍스트 작성:
+    
+    # 한 줄을 비워두고 탭을 넣고 해쉬태그로 시작
+    탭을 눌러 텍스트 작성
 
-General preformatted text:
+파이썬 코드작성 및 결과:
 
-    # Do a thing
-    do_thing()
-
-Python code and output:
+    # 그레이브 기호를 세개 넣고 해당언어(python) 이름을 적는다
+    주석은 해쉬태그 기호 하나를 넣어 삽입한다
+    코드를 다 작성했으면 그레이브 기호를 세개 넣고 코드 작성을 종료한다
 
 ```python
 # Prints '2'
 print(1+1)
 ```
 
-    2
 
-Formatting text as shell commands:
+쉘 커맨드 서식 작성방법:
 
 ```shell
 echo "hello world"
@@ -75,7 +81,7 @@ echo "hello world"
 wget https://example.com/cat_photo1.png
 ```
 
-Formatting text as YAML:
+YAML 서식 작성방법:
 
 ```yaml
 key: value
@@ -83,21 +89,18 @@ key: value
 ```
 
 
-## Tables
+## 테이블 작성방법
 
-| Column 1 | Column 2 |
+컬럼명의 앞뒤를 버티컬바 기호로 감싸고, 컬럼마다 해당 기호를 추가한다
+컬럼과 값을 구분할 때 마이너스 기호를 버티컬바 기호를 감싸고, 컬럼 개수 만큼 넣어준다
+행 단위로 값을 넣을 때도 컬럼명 작성과 동일한 방식으로 작성한다
+
+| 컬럼명 1 | 컬럼명 2 |
 |-|-|
-| A thing | Another thing |
+| 컬럼1의 1행 | 컬럼2의 1행 |
 
 
-## Tweetcards
+## 각주 작성방법
 
-{% twitter https://twitter.com/jakevdp/status/1204765621767901185?s=20 %}
-
-
-## Footnotes
-
-
-
-[^1]: This is the footnote.
+[^1]: 각주의 설명을 적는다.
 
